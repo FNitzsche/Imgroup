@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
 }
 
 group 'Imgroup'
@@ -9,8 +10,11 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile "org.testfx:testfx-junit:4.0.16-alpha"
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.13.2'
 }
