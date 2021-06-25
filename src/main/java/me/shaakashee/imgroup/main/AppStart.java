@@ -12,6 +12,7 @@ public class AppStart extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         mainScreenCon = new MainScreenCon();
+        mainScreenCon.setStage(stage);
         mainScreenFxml = new FXMLLoad("/me/shaakashee/imgroup/mainScreen.fxml", mainScreenCon);
 
         stage.setScene(mainScreenFxml.getScene());
