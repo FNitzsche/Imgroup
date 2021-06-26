@@ -5,10 +5,7 @@ import me.shaakashee.imgroup.model.HashImage;
 
 import java.io.File;
 import java.io.FilenameFilter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashSet;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ImageCollector {
@@ -26,11 +23,17 @@ public class ImageCollector {
     }
 
     public static void loadHashes(Div div){
+        HashMap<String, SaveData.smallHashImg> dataMap = SaveData.getSaved();
         div.getImgs().parallelStream().forEach(img -> {
             if (img.getHash() == null){
-                HashImage.calcHash(img);
+                if (dataMap.containsKey(img.getFile().getAbsolutePath())){
+                    img.setHash(dataMap.get(img.getFile().getAbsolutePath()).hash);
+                } else {
+                    HashImage.calcHash(img);
+                }
             }
         });
+        SaveData.saveUpdateData(div);
     }
 
     public static ArrayList<HashImage> getDistTo(HashImage hashImage, Div div, double c, double c2, double c3){

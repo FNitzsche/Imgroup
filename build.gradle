@@ -17,4 +17,5 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile "org.testfx:testfx-junit:4.0.16-alpha"
     testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.13.2'
+    implementation 'com.google.code.gson:gson:2.8.7'
 }
