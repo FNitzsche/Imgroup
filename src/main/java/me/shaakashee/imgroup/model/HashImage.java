@@ -3,6 +3,7 @@ package me.shaakashee.imgroup.model;
 import javafx.scene.image.Image;
 import me.shaakashee.imgroup.hashing.SimpleDifferenceHashing;
 
+import java.beans.PropertyChangeSupport;
 import java.io.File;
 
 public class HashImage {
@@ -12,6 +13,8 @@ public class HashImage {
     private Image prev;
 
     private double currentDistance;
+
+    public PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
 
     public File getFile() {
         return file;
@@ -27,6 +30,7 @@ public class HashImage {
 
     public void setHash(String hash) {
         this.hash = hash;
+        propertyChangeSupport.firePropertyChange("hash", null, hash);
     }
 
     public Image getPrev() {
@@ -35,6 +39,7 @@ public class HashImage {
 
     public void setPrev(Image prev) {
         this.prev = prev;
+        propertyChangeSupport.firePropertyChange("prev", null, prev);
     }
 
     public static void getPrev(HashImage hashImage){
@@ -52,25 +57,24 @@ public class HashImage {
             return -1;
         }
 
+        return getDistance(hashImage.getHash(), hashImage2.getHash(), c, c2);
+    }
+
+    public static double getDistance(String hash, String hash2, double c, double c2){
+
         double diffCount = 0;
 
         for (int i = 0; i < 80; i++){
-            if (hashImage.getHash().charAt(i) != hashImage2.getHash().charAt(i)){
-                diffCount+=2*c;
+            if (hash.charAt(i) != hash2.charAt(i)){
+                diffCount+=c;
             }
         }
 
-        for (int i = 80; i < 94; i++){
-            if (hashImage.getHash().charAt(i) != hashImage2.getHash().charAt(i)){
-                diffCount+=20*c2;
+        for (int i = 80; i < 158; i++){
+            if (hash.charAt(i) != hash2.charAt(i)){
+                diffCount+=c2;
             }
         }
-
-        /*for (int i = 94; i < hashImage.getHash().length(); i++){
-            if (hashImage.getHash().charAt(i) != hashImage2.getHash().charAt(i)){
-                diffCount+=c3;
-            }
-        }*/
 
         return diffCount;
     }

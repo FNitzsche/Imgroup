@@ -4,12 +4,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
     <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
     <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
@@ -55,6 +56,33 @@
             <Label text="Structure" GridPane.columnIndex="2" />
             <Slider fx:id="color" majorTickUnit="0.25" max="1.0" orientation="VERTICAL" showTickLabels="true" showTickMarks="true" value="1.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Slider fx:id="struc" majorTickUnit="0.25" max="1.0" orientation="VERTICAL" showTickLabels="true" showTickMarks="true" value="1.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <GridPane GridPane.columnIndex="2">
+         <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+            <ColumnConstraints fx:id="cLabel" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Button fx:id="cluster" mnemonicParsing="false" text="Cluster Images" />
+            <Label fx:id="clLabel" text="Label" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+      <Button fx:id="save" mnemonicParsing="false" text="Save Data" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <GridPane GridPane.columnIndex="2" GridPane.rowIndex="2">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="back" mnemonicParsing="false" text="Back" />
+            <ToggleButton fx:id="sClusters" mnemonicParsing="false" text="showCLusters" GridPane.columnIndex="1" />
          </children>
       </GridPane>
    </children>
