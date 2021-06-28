@@ -51,7 +51,7 @@ public class MainScreenCon {
     @FXML
     Button cluster;
     @FXML
-    Button save;
+    Button search;
 
     @FXML
     Button back;
@@ -63,6 +63,7 @@ public class MainScreenCon {
     private Div div = new Div();
     private Stage stage;
     private ExecutorService exe;
+    private SearchScreenCon searchScreenCon;
     HashImage selected;
     KMeans kMeans;
 
@@ -76,6 +77,8 @@ public class MainScreenCon {
 
         cluster.setOnAction(e -> calculateClusters());
         sClusters.setOnAction(e -> showClusters());
+
+        search.setOnAction(e -> searchScreenCon.showWindow());
     }
 
     private void selectPath(){
@@ -279,5 +282,13 @@ public class MainScreenCon {
 
     public void setExe(ExecutorService exe) {
         this.exe = exe;
+    }
+
+    public SearchScreenCon getSearchScreenCon() {
+        return searchScreenCon;
+    }
+
+    public void setSearchScreenCon(SearchScreenCon searchScreenCon) {
+        this.searchScreenCon = searchScreenCon;
     }
 }

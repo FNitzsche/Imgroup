@@ -71,7 +71,7 @@
             <Label fx:id="clLabel" text="Label" GridPane.columnIndex="1" />
          </children>
       </GridPane>
-      <Button fx:id="save" mnemonicParsing="false" text="Save Data" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <Button fx:id="search" mnemonicParsing="false" text="Search in Hashed" GridPane.columnIndex="2" GridPane.rowIndex="1" />
       <GridPane GridPane.columnIndex="2" GridPane.rowIndex="2">
         <columnConstraints>
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
