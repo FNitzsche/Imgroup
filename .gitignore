@@ -18,3 +18,7 @@ gradle-app.setting
 /src/test/*
 /src/test/java/*
 *.ighd
+
+.idea/*
+
+gradle/wrapper/*
